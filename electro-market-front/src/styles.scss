@@ -1,0 +1,12 @@
+$tool-bar-height: 8%;
+
+html, body { height: 100vh; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% - $tool-bar-height;
+}
+

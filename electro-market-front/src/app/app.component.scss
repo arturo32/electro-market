@@ -1,0 +1,12 @@
+@use "../styles" as rootS;
+
+mat-toolbar {
+  height: rootS.$tool-bar-height;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
