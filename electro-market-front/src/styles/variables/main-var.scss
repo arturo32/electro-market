@@ -1,0 +1,8 @@
+@use "@angular/material" as mat;
+@use "../themes/main-dark";
+
+$tool-bar-height: 8%;
+$title-color: mat.get-color-from-palette(main-dark.$custom-secondary, 400);
+$primary: mat.get-color-from-palette(main-dark.$custom-primary);
+$accent: mat.get-color-from-palette(main-dark.$custom-secondary);
+$warn: mat.get-color-from-palette(main-dark.$custom-warn);

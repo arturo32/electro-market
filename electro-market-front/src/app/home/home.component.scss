@@ -1,9 +1,17 @@
-@use "../../styles" as app;
+@use "../../styles/variables/main-var" as vars;
 
 main {
-  h2 {
-    font-size: 3rem;
-    color: app.$title-color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  box-sizing: border-box;
+  padding: 5rem;
+  height: 100% - vars.$tool-bar-height;
+
+  #homeTitle {
+    font-size: 8rem;
+    color: vars.$title-color;
     font-style: italic;
+    line-height: normal;
   }
 }

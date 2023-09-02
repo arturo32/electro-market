@@ -1,14 +1,14 @@
-@use "../styles" as app;
-@use "@angular/material" as mat;
+@use "../styles/themes/main-dark";
+@use "../styles/variables/main-var" as vars;
 
 mat-toolbar {
-  height: app.$tool-bar-height;
+  height: vars.$tool-bar-height;
 }
 
 #nameButton {
   font-size: 2rem;
   font-style: italic;
-  color: app.$title-color;
+  color: vars.$title-color;
   font-weight: 900;
 }
 

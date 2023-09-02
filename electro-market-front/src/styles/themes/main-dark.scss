@@ -1,0 +1,15 @@
+@use "@angular/material" as mat;
+
+$custom-primary: mat.define-palette(mat.$light-green-palette, 800);
+$custom-secondary: mat.define-palette(mat.$amber-palette);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-dark-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-secondary,
+    warn: $custom-warn
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));

@@ -1,22 +1,17 @@
 @use "@angular/material" as mat;
-@use "@angular/material/theming" as mat-theme;
 @use 'sass:map';
+@use "./styles/themes/main-dark";
+@use "./styles/variables/main-var" as vars;
 @include mat.core();
 
-$custom-primary: mat-theme.mat-palette(mat-theme.$mat-pink);
-$custom-secondary: mat-theme.mat-palette(mat-theme.$mat-light-green);
-$custom-warn: mat-theme.mat-palette(mat-theme.$mat-red);
 
-$custom-theme: mat-theme.mat-dark-theme((
-  color: (
-    primary: $custom-primary,
-    accent: $custom-secondary,
-    warn: $custom-warn
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-  ));
-@include mat-theme.angular-material-theme($custom-theme);
+// Add the custom theme to all material's components:
+//@include mat-theme.angular-material-theme($custom-theme);
+
+// Adding theme colors to each component used in the site to reduce css files sizes
+@include mat.core-theme(main-dark.$custom-theme);
+@include mat.button-color(main-dark.$custom-theme);
+@include mat.toolbar-color(main-dark.$custom-theme);
 
 //Extracting palettes from theme
 //$color-config: mat.get-color-config($custom-theme);
@@ -24,8 +19,6 @@ $custom-theme: mat-theme.mat-dark-theme((
 //$accent-palette: map.get($color-config, 'accent');
 //$warn-palette: map.get($color-config, 'warn');
 
-$tool-bar-height: 8%;
-$title-color: mat.get-color-from-palette($custom-secondary, A400);
 
 html, body {
   height: 100vh;
@@ -35,10 +28,5 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100% - $tool-bar-height;
-}
+
 

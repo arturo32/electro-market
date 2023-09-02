@@ -1,0 +1,9 @@
+@use "../../styles/variables/main-var" as vars;
+
+.banner {
+  width: 100%;
+  padding: 4rem;
+  font-size: 3rem;
+  border-bottom: 1px solid vars.$accent;
+  box-sizing: border-box;
+}
