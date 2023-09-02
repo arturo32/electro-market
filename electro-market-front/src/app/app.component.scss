@@ -1,7 +1,15 @@
-@use "../styles" as rootS;
+@use "../styles" as app;
+@use "@angular/material" as mat;
 
 mat-toolbar {
-  height: rootS.$tool-bar-height;
+  height: app.$tool-bar-height;
+}
+
+#nameButton {
+  font-size: 2rem;
+  font-style: italic;
+  color: app.$title-color;
+  font-weight: 900;
 }
 
 .row {

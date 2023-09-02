@@ -1,7 +1,9 @@
-main {
-  background-color: green;
+@use "../../styles" as app;
 
+main {
   h2 {
     font-size: 3rem;
+    color: app.$title-color;
+    font-style: italic;
   }
 }

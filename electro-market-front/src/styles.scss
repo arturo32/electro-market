@@ -1,7 +1,39 @@
-$tool-bar-height: 8%;
+@use "@angular/material" as mat;
+@use "@angular/material/theming" as mat-theme;
+@use 'sass:map';
+@include mat.core();
 
-html, body { height: 100vh; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$custom-primary: mat-theme.mat-palette(mat-theme.$mat-pink);
+$custom-secondary: mat-theme.mat-palette(mat-theme.$mat-light-green);
+$custom-warn: mat-theme.mat-palette(mat-theme.$mat-red);
+
+$custom-theme: mat-theme.mat-dark-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-secondary,
+    warn: $custom-warn
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+  ));
+@include mat-theme.angular-material-theme($custom-theme);
+
+//Extracting palettes from theme
+//$color-config: mat.get-color-config($custom-theme);
+//$primary-palette: map.get($color-config, 'primary');
+//$accent-palette: map.get($color-config, 'accent');
+//$warn-palette: map.get($color-config, 'warn');
+
+$tool-bar-height: 8%;
+$title-color: mat.get-color-from-palette($custom-secondary, A400);
+
+html, body {
+  height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 main {
   display: flex;
