@@ -35,4 +35,6 @@ public class Product extends GenericModel<Long> {
 
 	@Range(min = 0, max = 10000000, message = "Price is not between $0 and $100,000!")
 	private Integer priceInCents;
+
+	private String imageFileName;
 }
