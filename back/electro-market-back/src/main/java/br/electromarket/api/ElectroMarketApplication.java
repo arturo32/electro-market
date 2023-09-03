@@ -19,7 +19,6 @@ public class ElectroMarketApplication {
 	@Bean
 	CommandLineRunner init(FileSystemStorageService storageService) {
 		return (args) -> {
-			storageService.deleteAll();
 			storageService.init();
 		};
 	}

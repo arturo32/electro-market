@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from "@angular/material/grid-list";
-import {NgForOf} from "@angular/common";
+import { NgForOf } from "@angular/common";
+import {Product} from "../entities/product";
+import {ProductsService} from "./service/products.service";
 
 @Component({
   selector: 'app-products',
@@ -10,6 +12,17 @@ import {NgForOf} from "@angular/common";
   standalone: true,
   imports: [MatCardModule, MatGridListModule, NgForOf]
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
+  products: Product[] = [];
+
+  constructor(private productsService: ProductsService) {
+  }
+
+  ngOnInit(): void {
+    this.productsService.list().subscribe(products => {
+      this.products = products;
+      }
+    );
+  }
 
 }

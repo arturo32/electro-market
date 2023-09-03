@@ -1,0 +1,35 @@
+<div class="banner">
+  Register Product
+</div>
+<main>
+
+  <div>
+    <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+      <ngx-dropzone-label>Drop or open the product's image.</ngx-dropzone-label>
+      <ngx-dropzone-image-preview *ngIf="file.size !== 0" [removable]="true" (removed)="onRemove()" [file]="file"/>
+    </ngx-dropzone>
+
+    <div class="example-container">
+      <mat-form-field color="accent">
+        <mat-label>Name</mat-label>
+        <input matInput required [(ngModel)]="product.name">
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0.00"
+               required [(ngModel)]="product.priceInCents">
+        <span matTextPrefix>$&nbsp;</span>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field color="accent" class="full">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="product.description"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <button (click)="saveProduct()" class="full" type="submit" color="accent" mat-stroked-button>Save</button>
+    </div>
+  </div>
+
+</main>

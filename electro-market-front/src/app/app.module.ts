@@ -8,10 +8,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { HomeComponent } from './home/home.component';
 import { MatButtonModule } from "@angular/material/button";
 import { ProductsComponent } from "./products/products.component";
+import {RegisterProductComponent} from "./register-product/register-product.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,8 @@ import { ProductsComponent } from "./products/products.component";
     MatToolbarModule,
     MatButtonModule,
     ProductsComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterProductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

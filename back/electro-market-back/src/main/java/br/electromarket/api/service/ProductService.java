@@ -6,8 +6,14 @@ import br.electromarket.api.repository.ProductRepository;
 import br.electromarket.base.respository.GenericRepository;
 import br.electromarket.base.service.GenericService;
 import br.electromarket.base.service.PersistenceType;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,6 +37,22 @@ public class ProductService extends GenericService<Product, ProductDto, Long> {
 		product.setImageFileName(multipartFile.getOriginalFilename());
 
 		return this.productRepository.save(product);
+	}
+
+	public Collection<ProductDto> findAllWithFile(Integer limit, Integer page) {
+		List<Product> products = this.findAll(limit, page);
+		return products.stream().map(product -> {
+			String base64Image = null;
+			try {
+				base64Image = Base64.getEncoder().encodeToString(
+						fileSystemStorageService.loadAsResource(product.getImageFileName())
+								.getContentAsByteArray());
+			}
+			catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+			return new ProductDto(product, base64Image);
+		}).toList();
 	}
 
 	@Override

@@ -10,8 +10,26 @@
 
 // Adding theme colors to each component used in the site to reduce css files sizes
 @include mat.core-theme(main-dark.$custom-theme);
-@include mat.button-color(main-dark.$custom-theme);
-@include mat.toolbar-color(main-dark.$custom-theme);
+//@include mat.all-component-themes(main-dark.$custom-theme);
+
+@include mat.button-theme(main-dark.$custom-theme);
+@include mat.toolbar-theme(main-dark.$custom-theme);
+@include mat.form-field-theme(main-dark.$custom-theme);
+@include mat.card-theme(main-dark.$custom-theme);
+//@include mat.divider-color(main-dark.$custom-theme);
+//@include mat.dialog-theme(main-dark.$custom-theme);
+//@include mat.ripple-color(main-dark.$custom-theme);
+//@include mat.legacy-input-color(main-dark.$custom-theme);
+//@include mat.expansion-color(main-dark.$custom-theme);
+//@include mat.core-color(main-dark.$custom-theme);
+//@include mat.stepper-color(main-dark.$custom-theme);
+//@include mat.strong-focus-indicators-color(main-dark.$custom-theme);
+//@include mat.snack-bar-color(main-dark.$custom-theme);
+//@include mat.progress-bar-color(main-dark.$custom-theme);
+//@include mat.autocomplete-color(main-dark.$custom-theme);
+//@include mat.private-form-field-color(main-dark.$custom-theme);
+
+
 
 //Extracting palettes from theme
 //$color-config: mat.get-color-config($custom-theme);
@@ -28,5 +46,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
+.banner {
+  width: 100%;
+  padding: 2rem 4rem;
+  font-size: 2.5rem;
+  border-bottom: 1px solid vars.$accent;
+  box-sizing: border-box;
+}
 
