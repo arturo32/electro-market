@@ -1,10 +1,9 @@
 .items-grid {
-  display: inline-flex;
-  width: fit-content;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  width: 100%;
+  justify-items: center;
   row-gap: 3rem;
-  column-gap: 15rem;
 }
 
 .item {

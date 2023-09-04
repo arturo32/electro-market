@@ -1,8 +1,10 @@
 <mat-toolbar color="primary" role="navigation">
   <div class="row">
     <button id="nameButton" mat-button routerLink="">Electro-Market</button>
-    <a mat-stroked-button routerLink="products">Products</a>
-    <a mat-stroked-button routerLink="register-product">Register Product</a>
+    <div id="mainButtons">
+      <a mat-stroked-button routerLink="products">Products</a>
+      <a mat-stroked-button routerLink="register-product">Register Product</a>
+    </div>
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
