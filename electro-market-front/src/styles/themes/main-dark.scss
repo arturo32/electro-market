@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
 
-$custom-primary: mat.define-palette(mat.$light-green-palette, 800);
+$custom-primary: mat.define-palette(mat.$light-green-palette, 700);
 $custom-secondary: mat.define-palette(mat.$amber-palette);
 $custom-warn: mat.define-palette(mat.$red-palette);
 
