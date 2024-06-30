@@ -11,9 +11,7 @@ import java.util.Base64;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -86,7 +84,12 @@ public class ProductService extends GenericService<Product, ProductDto, Long> {
 
 	@Override
 	protected void validate(ProductDto productDto) {
-
+		if(productDto.priceInCents() < 0) {
+			throw new RuntimeException("Error: negative price.");
+		}
+		if(productDto.priceInCents() > 10000000 ) {
+			throw new RuntimeException("Error: price is above $100,000.");
+		}
 	}
 
 	@Override
